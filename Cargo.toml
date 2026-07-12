@@ -1,0 +1,19 @@
+[package]
+name = "remox"
+version = "0.8.0"
+edition = "2021"
+description = "Remox — Easier than Python. Faster than Kotlin."
+license = "MIT"
+repository = "https://github.com/Apedev-Studios/Remox-0.1"
+keywords = ["language", "interpreter", "scripting"]
+categories = ["compilers", "command-line-utilities"]
+
+[[bin]]
+name = "remox"
+path = "Remox_Standalone_V1.rs"
+
+[dependencies]
+spin = "0.9"
+
+[profile.release]
+opt-level = 3
