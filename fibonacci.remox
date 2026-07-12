@@ -1,0 +1,39 @@
+// examples/fibonacci.remox
+// Classic recursive + iterative fibonacci, plus a quick try/catch demo
+// showing error handling as an expression.
+
+fn fib(n) {
+    if n < 2 {
+        n
+    } else {
+        fib(n - 1) + fib(n - 2)
+    }
+}
+
+say "Recursive fibonacci:"
+each i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] {
+    say fib(i)
+}
+
+fn fib_iter(n) {
+    let a = 0
+    let b = 1
+    loop n {
+        let next = a + b
+        a = b
+        b = next
+    }
+    a
+}
+
+say "Iterative fibonacci(20):"
+say fib_iter(20)
+
+let safe = try {
+    let bad = 10 / 0
+    bad
+} catch err {
+    say "Caught: {err}"
+    0
+}
+say safe

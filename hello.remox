@@ -1,0 +1,34 @@
+// examples/hello.remox
+// A quick tour of Remox's core syntax — variables, string interpolation,
+// functions, lists, maps, match, loop, and each.
+
+let name = "Remox"
+let version = 0.8
+say "Hello from {name} v{version}!"
+
+fn square(n) {
+    n * n
+}
+say square(9)
+
+let nums = [3, 1, 4, 1, 5, 9]
+say nums.sort()
+say nums.sum()
+say nums.unique()
+
+let user = { name: "Dev", age: 21 }
+say "{user.name} is {user.age} years old"
+
+match version {
+    0.8 => say "Beta"
+    1.0 => say "Stable"
+    _   => say "Unknown"
+}
+
+loop 3 {
+    say "Counting..."
+}
+
+each item in nums {
+    say item * 2
+}

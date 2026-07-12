@@ -1,0 +1,16 @@
+// examples/web_server.remox
+// A minimal HTTP server using Remox's built-in Vyraweb library —
+// no external dependencies, no separate framework install.
+
+use Vyraweb
+
+say "Vyraweb version: {Vyraweb.version}"
+
+Vyraweb.get("/", (req) => Vyraweb.html("<h1>Hello from Remox!</h1>"))
+
+Vyraweb.get("/api/status", (req) => Vyraweb.json({ status: "ok", framework: "Vyraweb" }))
+
+Vyraweb.post("/echo", (req) => Vyraweb.text(req))
+
+say "Starting server on port 8080..."
+Vyraweb.run(8080)
